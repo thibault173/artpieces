@@ -5,18 +5,12 @@
     <div class="col-xs-12 col-sm-4">
 <% @pieces.each do |piece| %>
   <div class="piece-card">
-   <%= link_to piece.name, piece_path(piece) %>
-    <p> <%= piece.price %> </p>
-  </div>
-
-  <% end %>
-</div>
-
-  <div class="col-xs-12 col-sm-4">
-<% @pieces.each do |piece| %>
-  <div class="piece-card">
+     <div class="card-category">
     <%= link_to piece.name, piece_path(piece) %>
+    </div>
+    <div class="price">
     <p> <%= piece.price %> </p>
+  </div>
   </div>
   <% end %>
 </div>
@@ -24,17 +18,34 @@
   <div class="col-xs-12 col-sm-4">
 <% @pieces.each do |piece| %>
   <div class="piece-card">
-     <%= link_to piece.name, piece_path(piece) %>
+     <div class="card-category">
+    <%= link_to piece.name, piece_path(piece) %>
+    </div>
+    <div class="price">
     <p> <%= piece.price %> </p>
+  </div>
+  </div>
+  <% end %>
+</div>
+
+  <div class="col-xs-12 col-sm-4">
+<% @pieces.each do |piece| %>
+  <div class="piece-card">
+     <div class="card-category">
+    <%= link_to piece.name, piece_path(piece) %>
+    </div>
+    <div class="price">
+    <p> <%= piece.price %> </p>
+  </div>
   </div>
   <% end %>
 </div>
 
 
+
   </div>
 </div>
-  </div>
-<% end %>
+
 
 <%= link_to "Add a piece", new_piece_path %>
 
