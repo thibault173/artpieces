@@ -18,7 +18,7 @@ class PiecesController < ApplicationController
     @piece = Piece.new(piece_params)
     @piece.user = current_user
     if @piece.save
-      redirect_to root_path
+      redirect_to piece_path(@piece)
     else
       render :new
     end
@@ -31,7 +31,7 @@ class PiecesController < ApplicationController
   def update
     @piece.update(piece_params)
     if @piece.save
-      redirect_to root_path
+      redirect_to piece_path(@piece)
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class PiecesController < ApplicationController
   private
 
   def piece_params
-    params.require(:piece).permit(:name, :description, :price)
+    params.require(:piece).permit(:name, :description, :price, :photo)
   end
 
   def set_piece
