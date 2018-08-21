@@ -1,15 +1,17 @@
 .footer {
   background: #F4F4F4;
-
+  display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  background-color: #EEE;
 }
 .footer-links {
   display: flex;
-  align-items: center;
+  text-align: center;
+  display: block;
 }
 .footer-links a {
   color: black;
@@ -21,4 +23,23 @@
 .footer-links a:hover {
   opacity: 1;
 }
+
+.navigation-title {
+display: block;
+align-items: center;
+}
+
+.navigation-items li {
+display: block;
+align-items: center;
+text-decoration: none;
+}
+
+.footer-copyright {
+text-align: center;
+font-size: 12px;
+}
+
+
+
 
