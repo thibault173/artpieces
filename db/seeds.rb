@@ -13,11 +13,14 @@
 
 puts "Cleaning database..."
 
+# The order matter
+
 if Rails.env.development?
-  Tag.destroy_all
-  User.destroy_all
-  Piece.destroy_all
+  PieceTag.destroy_all
   Booking.destroy_all
+  Tag.destroy_all
+  Piece.destroy_all
+  User.destroy_all
 end
 
 # Creating Tags = ok
@@ -41,7 +44,7 @@ puts "#{Tag.count} Tags created !"
 
 # Creating Users = ok
 
-puts " Creating users"
+puts "Creating users"
 
 User.create(email: "leonard@devin.ci", password: '123456', password_confirmation: '123456')
 User.create(email: "bernard@lvmh.money", password:'123456', password_confirmation: '123456')
@@ -71,5 +74,5 @@ puts "Creating Bookings"
   Booking.create(user: User.all.sample, piece: Piece.all.sample, start_on: Date.today.next_week, end_on: Date.today.next_week.next_week)
 end
 
-puts " #{Booking.count} Bookings created !"
+puts "#{Booking.count} Bookings created !"
 
