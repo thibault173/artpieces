@@ -1,9 +1,13 @@
 class PiecesController < ApplicationController
+  before_action :set_piece, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @pieces = Piece.all
   end
 
   def show
+
   end
 
   def new
@@ -21,7 +25,7 @@ class PiecesController < ApplicationController
   end
 
   def edit
-    @piece = Piece.find(params[:id])
+
   end
 
   def update
@@ -34,11 +38,17 @@ class PiecesController < ApplicationController
   end
 
   def destroy
+    @piece.destroy
+    redirect_to root_path
   end
 
   private
 
   def piece_params
     params.require(:piece).permit(:name, :description, :price)
+  end
+
+  def set_piece
+    @piece = Piece.find(params[:id])
   end
 end

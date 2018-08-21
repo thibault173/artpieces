@@ -1,2 +1,5 @@
-<h1>Pieces#edit</h1>
-<p>Find me in app/views/pieces/edit.html.erb</p>
+<h1>Edit <%= @piece.name %> </h1>
+
+<%= render 'form_piece', piece: @piece %>
+
+<%= link_to "Back", piece_path(@piece)  %>
