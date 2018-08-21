@@ -5,7 +5,8 @@
 
       <% @pieces.each do |piece| %>
     <div class="col-xs-12 col-sm-4">
-        <div class="piece-card">
+
+        <div class="piece-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path piece.photo, width: 400 %>');">
           <div class="card-category">
               <%= link_to piece.name, piece_path(piece) %>
 
@@ -13,7 +14,7 @@
           </div>
           <div class="price">
               <p> <%= piece.price %> </p>
-            </div>$
+            </div>
           </div>
     </div>
     <% end %>
