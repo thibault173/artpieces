@@ -2,6 +2,9 @@
 
 <% @pieces.each do |piece| %>
   <div class="piece-card">
-    <%= piece.name %>
+    <%= link_to piece.name, piece_path(piece) %>
   </div>
 <% end %>
+
+<%= link_to "Add a piece", new_piece_path %>
+
