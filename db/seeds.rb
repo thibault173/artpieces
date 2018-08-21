@@ -16,9 +16,9 @@ puts "Cleaning database..."
 # The order matter
 
 if Rails.env.development?
-  Tag.destroy_all
-  Booking.destroy_all
   PieceTag.destroy_all
+  Booking.destroy_all
+  Tag.destroy_all
   Piece.destroy_all
   User.destroy_all
 end
