@@ -11,6 +11,7 @@ class PiecesController < ApplicationController
 
   def create
     @piece = Piece.new(piece_params)
+    @piece.user = current_user
     if @piece.save
       redirect_to root_path
     else
@@ -19,9 +20,16 @@ class PiecesController < ApplicationController
   end
 
   def edit
+    @piece = Piece.find(params[:id])
   end
 
   def update
+    @piece.update(piece_params)
+    if @piece.save
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
