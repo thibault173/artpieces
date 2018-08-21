@@ -4,6 +4,8 @@
 
 <h2> Price : <%= @piece.price %> </h2>
 
+<%= link_to "Book this piece of art",  new_piece_booking_path(@piece)  %> <br>
+
 <%= link_to "Edit this piece", edit_piece_path(@piece)  %> <br>
 
 <%= link_to "Back", root_path  %> <br>
