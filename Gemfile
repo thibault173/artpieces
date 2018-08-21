@@ -18,6 +18,9 @@ gem 'webpacker'
 gem 'devise'
 gem 'awesome_print'
 gem 'faker'
+gem 'rest-client'
+gem 'json'
+gem 'nokogiri'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
