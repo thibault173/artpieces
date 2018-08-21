@@ -1,4 +1,10 @@
-<h1>Pieces#index</h1>
-<p>Find me in app/views/pieces/index.html.erb</p>
+<h1>List of all Pieces on the website</h1>
+
+<% @pieces.each do |piece| %>
+  <div class="piece-card">
+    <%= piece.name %>
+  </div>
+<% end %>
 
 <%= link_to "Add a piece", new_piece_path %>
+
