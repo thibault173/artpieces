@@ -20,15 +20,19 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.status = "Accepted"
-    @booking.save
+    if @booking.status == "pending"
+      @booking.status = "Accepted"
+      @booking.save
+    end
     redirect_back(fallback_location: bookings_path)
   end
 
   def decline
     @booking = Booking.find(params[:id])
-    @booking.status = "Declined"
-    @booking.save
+    if @booking.status == "pending"
+      @booking.status = "Declined"
+      @booking.save
+    end
     redirect_back(fallback_location: bookings_path)
   end
 

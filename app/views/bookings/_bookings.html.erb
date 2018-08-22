@@ -18,13 +18,17 @@
         <td><%= booking.piece.name%></td>
         <td><div><%= booking.id%>|<%= booking.start_on%></div><div><%= booking.end_on%></div></td>
         <td><%= booking.status%></td>
-        <td> <%= link_to accept_booking_path(booking) do %>
+
+        <td>
+          <% if booking.status == "pending" %>
+            <%= link_to accept_booking_path(booking) do %>
                 <button type="button" class="btn btn-success">Accept</button>
              <% end %>
 
              <%= link_to decline_booking_path(booking) do %>
                 <button type="button" class="btn btn-danger">Decline</button>
              <% end %>
+          <% end %>
         </td>
       </tr>
     <% end %>
