@@ -6,7 +6,7 @@
       <th scope="col">Art Piece</th>
       <th scope="col">Duration</th>
       <th scope="col">Status</th>
-      <th scope="col">Action</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -16,11 +16,17 @@
         <td class="table-avatar"><%= booking.user.avatar %></td>
         <td><%= booking.user.first_name %></td>
         <td><%= booking.piece.name%></td>
-        <td><div><%= booking.start_on%></div><div><%= booking.end_on%></div></td>
+        <td><div><%= booking.id%>|<%= booking.start_on%></div><div><%= booking.end_on%></div></td>
         <td><%= booking.status%></td>
-        <td>...</td>
+        <td> <%= link_to accept_booking_path(booking) do %>
+                <button type="button" class="btn btn-success">Accept</button>
+             <% end %>
+
+             <%= link_to decline_booking_path(booking) do %>
+                <button type="button" class="btn btn-danger">Decline</button>
+             <% end %>
+        </td>
       </tr>
     <% end %>
-
   </tbody>
 </table>

@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   resources :pieces, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:update, :destroy, :index]
+  resources :bookings, only: [:update, :destroy, :index] do
+    member do
+      get 'accept', to: 'bookings#accept'
+      get 'decline', to: 'bookings#decline'
+    end
+  end
 end
