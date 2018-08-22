@@ -8,10 +8,12 @@
   position: relative;
 
 
-
 }
 
-
+.piece-card:hover {
+  opacity: 0.9;
+  background-size: cover;
+}
 
 .card-category {
   position: absolute;
@@ -33,21 +35,6 @@ h1 {
   font-family: 'Abel', sans-serif;
  text-align: center;
 
-}
-
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
-  background-size: cover;
 }
 
 a {
