@@ -8,6 +8,7 @@ class PiecesController < ApplicationController
 
   def show
     @piece_tag = PieceTag.new
+    @booking = Booking.new
   end
 
   def new

@@ -7,9 +7,9 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Host</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Trips</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+    <%= link_to bookings_path do %>
+    <button type="button" class="btn btn-primary">My bookings <span class="badge badge-light"><%= current_user.my_pieces_reserved.where(status: "pending").count %></span><span class="sr-only">unread messages</span></button>
+    <% end %>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">

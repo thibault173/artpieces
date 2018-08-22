@@ -7,10 +7,6 @@ class BookingsController < ApplicationController
     @my_pieces_reserved = current_user.my_pieces_reserved
   end
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
     @booking = Booking.new(booking_params)
     @booking.piece = @piece
