@@ -17,9 +17,12 @@ h1 {
 }
 
 .text {
+  font-size: 14px;
   grid-column: 3 / 4;
   grid-row: 1;
   width: 350px;
+  padding-bottom: 10px;
+
 }
 
 
@@ -33,8 +36,8 @@ h1 {
 
 .container-show {
 display: grid;
-grid-template-columns: repeat(4, 2fr);
-height: 600px;
+grid-template-columns: repeat(4, 1fr);
+height: 800px;
 }
 
 
