@@ -2,19 +2,22 @@
   <div class="container">
     <h1>My bookings</h1>
 
-      <h2>Bookings sur mes objets</h2>
-      <ul>
-      <% @pieces_owned.each do |own|%>
-        <li><%= own.name %> </li>
-      <% end %>
-      </ul>
 
-      <h2>Bookings pending</h2>
-      <ul>
-      <% @pieces_rented.each do |rent|%>
-        <li><%= rent.name %> </li>
-      <% end %>
-      </ul>
+    <h2>Bookings I made</h2>
+    <ul>
+    <% @pieces_rented.each do |rent|%>
+      <li><%= rent.name %> </li>
+    <% end %>
+    </ul>
+
+    <br>
+
+
+    <h2>Bookings over my Art Pieces</h2>
+    <%= render 'bookings', bookings: @my_pieces_reserved %>
+
+    <br>
+
 
   </div>
 </div>
