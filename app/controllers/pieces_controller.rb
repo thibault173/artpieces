@@ -7,7 +7,7 @@ class PiecesController < ApplicationController
   end
 
   def show
-
+    @piece_tag = PieceTag.new
   end
 
   def new
@@ -45,7 +45,7 @@ class PiecesController < ApplicationController
   private
 
   def piece_params
-    params.require(:piece).permit(:name, :description, :price, :photo)
+    params.require(:piece).permit(:name, :description, :price, :photo, { :tag_ids => [] })
   end
 
   def set_piece
