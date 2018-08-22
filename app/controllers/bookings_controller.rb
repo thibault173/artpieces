@@ -2,6 +2,9 @@ class BookingsController < ApplicationController
   before_action :set_piece, only: [:new, :create]
 
   def index
+    @pieces_rented = current_user.rent_pieces
+    # @pieces_owned = current_user.own_pieces
+    @my_pieces_reserved = current_user.my_pieces_reserved
   end
 
   def new

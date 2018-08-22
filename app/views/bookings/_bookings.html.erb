@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="table-head">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Art Piece</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% bookings.each do |booking|%>
+      <tr>
+        <td class="table-avatar"><%= booking.user.avatar %></td>
+        <td><%= booking.user.first_name %></td>
+        <td><%= booking.piece.name%></td>
+        <td><div><%= booking.start_on%></div><div><%= booking.end_on%></div></td>
+        <td><%= booking.status%></td>
+        <td>...</td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
