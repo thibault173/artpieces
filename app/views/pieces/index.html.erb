@@ -4,18 +4,21 @@
   <div class="row">
     <% @pieces.each do |piece| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="piece-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path piece.photo, width: 400 %>');">
 
-          <div class="card-category">
-            <%= link_to piece.name, piece_path(piece) %>
+        <%= link_to piece_path(piece) do  %>
+          <div class="piece-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path piece.photo, width: 400 %>');">
+
+              <div class="card-category">
+                <%= piece.name %>
+              </div>
+
+            <div class="price">
+              <p> <%= piece.price %> </p>
+            </div>
+
           </div>
+        <% end %>
 
-          <div class="price">
-            <p> <%= piece.price %> </p>
-          </div>
-
-          <a class="card-link" href="#" ></a>
-        </div>
       </div>
     <% end %>
   </div>
@@ -27,3 +30,8 @@
 </div>
 
 
+<%= link_to piece_path(71) do %>
+  <div>
+    <strong>Awesome link</strong> -- it's pretty awesome
+  </div>
+<% end %>
