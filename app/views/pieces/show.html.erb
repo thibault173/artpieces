@@ -6,6 +6,14 @@
 
 <%= cl_image_tag @piece.photo, width: 400 %> <br>
 
+<h2>Tags</h2>
+
+<ul>
+  <% @piece.tags.each do |tag| %>
+    <li> <%= tag.name %> </li>
+  <% end %>
+</ul>
+
 <%= link_to "Book this piece of art",  new_piece_booking_path(@piece)  %> <br>
 
 <%= link_to "Edit this piece", edit_piece_path(@piece)  %> <br>
