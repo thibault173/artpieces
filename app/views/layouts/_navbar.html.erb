@@ -7,14 +7,20 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- ce lien mes pieces ne mene a aucune page pour l'instant -->
 
-
-    <%= link_to bookings_path do %>
-    <button type="button" class="btn btn-primary">My bookings <span class="badge badge-light"><%= current_user.my_pieces_reserved.where(status: "pending").count %></span><span class="sr-only">unread messages</span></button>
-    <% end %>
+      <% unless current_user.nil? %>
+          <%= link_to bookings_path do %>
+            <button type="button" class="btn btn-primary">My bookings <span class="badge badge-light">
+            <%= current_user.my_pieces_reserved.where(status: "pending").count %>
+            </span><span class="sr-only">unread messages</span></button>
+          <% end %>
+      <% end %>
 
     <!-- Profile picture with dropdown list -->
+  <% if current_user.nil? %>
+    <%= link_to "Log in", new_user_session_path, class:"navbar-wagon-item navbar-wagon-link"  %>
+
+  <% else %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <%= image_tag("JP.jpg", alt: "Profile", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data: {toggle: 'dropdown'} )%>
@@ -24,6 +30,8 @@
         </ul>
       </div>
     </div>
+  <% end %>
+
   </div>
 
   <!-- Dropdown appearing on mobile only -->
