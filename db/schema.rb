@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2018_08_21_132458) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.string "status", default: "available"
     t.date "start_on"
     t.date "end_on"
+    t.string "status", default: "available"
     t.bigint "user_id"
     t.bigint "piece_id"
     t.datetime "created_at", null: false
