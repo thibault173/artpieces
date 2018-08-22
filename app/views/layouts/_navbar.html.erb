@@ -7,6 +7,9 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <!-- ce lien mes pieces ne mene a aucune page pour l'instant -->
+
+
     <%= link_to bookings_path do %>
     <button type="button" class="btn btn-primary">My bookings <span class="badge badge-light"><%= current_user.my_pieces_reserved.where(status: "pending").count %></span><span class="sr-only">unread messages</span></button>
     <% end %>
@@ -17,7 +20,6 @@
         <%= image_tag("JP.jpg", alt: "Profile", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data: {toggle: 'dropdown'} )%>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
           <li><a href="#">Log Out</a></li>
         </ul>
       </div>
