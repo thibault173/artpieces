@@ -1,12 +1,11 @@
 class PieceTagsController < ApplicationController
 
-  def create
+  def update
 
   end
 
   def destroy
 
   end
-
 
 end
