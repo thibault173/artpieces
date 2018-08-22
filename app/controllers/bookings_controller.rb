@@ -2,9 +2,9 @@ class BookingsController < ApplicationController
   before_action :set_piece, only: [:new, :create]
 
   def index
-    @pieces_rented = current_user.rent_pieces
+    @pieces_rented = current_user.rent_pieces.order(id: :desc)
     # @pieces_owned = current_user.own_pieces
-    @my_pieces_reserved = current_user.my_pieces_reserved
+    @my_pieces_reserved = current_user.my_pieces_reserved.order(id: :desc)
   end
 
   def create
@@ -18,7 +18,22 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
+  def accept
+    @booking = Booking.find(params[:id])
+    if @booking.status == "pending"
+      @booking.status = "Accepted"
+      @booking.save
+    end
+    redirect_back(fallback_location: bookings_path)
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    if @booking.status == "pending"
+      @booking.status = "Declined"
+      @booking.save
+    end
+    redirect_back(fallback_location: bookings_path)
   end
 
   def destroy
