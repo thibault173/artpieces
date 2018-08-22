@@ -1,29 +1,29 @@
 
 <div class="container">
+  <h1>List of all Pieces on the website</h1>
   <div class="row">
-<h1>List of all Pieces on the website</h1>
-      <% @pieces.each do |piece| %>
-    <div class="col-xs-12 col-sm-4">
-
+    <% @pieces.each do |piece| %>
+      <div class="col-xs-12 col-sm-4">
         <div class="piece-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path piece.photo, width: 400 %>');">
-          <div class="card-category">
-              <%= link_to piece.name, piece_path(piece) %>
-          </div>
-              <div class="price">
-                  <p> <%= piece.price %> </p>
-                </div>
-                <a class="card-link" href="#" ></a>
-              </div>
-            </div>
-        <% end %>
-      </div>
 
+          <div class="card-category">
+            <%= link_to piece.name, piece_path(piece) %>
+          </div>
+
+          <div class="price">
+            <p> <%= piece.price %> </p>
+          </div>
+
+          <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="bouton">
-   <div class="addpiece">
+  <div class="addpiece">
       <button type="button" class="btn btn-primary"><%= link_to "Add a piece", new_piece_path %> </button>
-     </div>
-
+  </div>
 </div>
 
 
