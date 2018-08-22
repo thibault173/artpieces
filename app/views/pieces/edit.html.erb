@@ -1,5 +1,9 @@
-<h1>Edit <%= @piece.name %> </h1>
+<div class="wrapper">
+  <div class="container">
+    <h1>Edit <%= @piece.name %></h1>
 
-<%= render 'form_piece', piece: @piece %>
+    <%= render 'form_piece', piece: @piece %>
 
-<%= link_to "Back", piece_path(@piece)  %>
+    <%= link_to "Back", piece_path(@piece)  %>
+  </div>
+</div>
