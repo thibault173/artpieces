@@ -1,26 +1,37 @@
-<h1>Name : <%= @piece.name %> </h1>
+<div class="container container-show" >
 
-<h2> Description : <%= @piece.description %> </h2>
+  <div class="picture">
+  <%= cl_image_tag @piece.photo, width: 400 %> <br>
+  </div>
 
-<h2> Price : <%= @piece.price %> </h2>
+  <div class="text">
+      <h1> <%= @piece.name %> </h1>
+      <p> Price : <%= @piece.price %> CHF </p>
+          Description : <%= @piece.description %>
+  </div>
 
-<%= cl_image_tag @piece.photo, width: 400 %> <br>
+  <div class="formulaire">
+    <ul>
+      <% @piece.tags.each do |tag| %>
+        <li> <%= tag.name %> </li>
+      <% end %>
+    </ul>
 
-<h2>Tags</h2>
+    <div class="align">
+      <div class="btntag">
+        <%= link_to "Edit this piece", edit_piece_path(@piece)  %>
+      </div>
 
-<ul>
-  <% @piece.tags.each do |tag| %>
-    <li> <%= tag.name %> </li>
-  <% end %>
-</ul>
+      <div class="btntag">
+        <%= link_to "Back", root_path  %>
+      </div>
 
-<%= link_to "Edit this piece", edit_piece_path(@piece)  %> <br>
-
-<%= link_to "Back", root_path  %> <br>
-
-<%= link_to "Delete this piece", piece_path(@piece),
-  method: :delete,
-  data: {confirm: "Are you sure?" } %>
-
-<!-- Add of booking form -->
-<%= render 'bookings/form_booking', piece: @piece, booking: @booking  %>
+      <div class="btntag">
+        <%= link_to "Delete this piece", piece_path(@piece),
+          method: :delete,
+          data: {confirm: "Are you sure?" } %>
+      </div>
+    </div>
+    <%= render 'bookings/form_booking', piece: @piece, booking: @booking  %>
+  </div>
+</div>
