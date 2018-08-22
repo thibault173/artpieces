@@ -14,8 +14,6 @@
   <% end %>
 </ul>
 
-<%= link_to "Book this piece of art",  new_piece_booking_path(@piece)  %> <br>
-
 <%= link_to "Edit this piece", edit_piece_path(@piece)  %> <br>
 
 <%= link_to "Back", root_path  %> <br>
@@ -23,3 +21,6 @@
 <%= link_to "Delete this piece", piece_path(@piece),
   method: :delete,
   data: {confirm: "Are you sure?" } %>
+
+<!-- Add of booking form -->
+<%= render 'bookings/form_booking', piece: @piece, booking: @booking  %>
