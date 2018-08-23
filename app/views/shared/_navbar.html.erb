@@ -4,27 +4,33 @@
     <img src="images/logo.png" alt="logo">
   </a>
 
+
+
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <div class="notification-symbol-text">
-      <% if current_user %>
+    <% unless current_user.nil? %>
+      <div class="notification-symbol-text">
         <% new_notification = current_user.my_pieces_reserved.where(status: "pending").count %>
           <%= link_to bookings_path do %>
             <i class="fas fa-bell" style ="color: black"></i>
-            <% if new_notification != 0 %>
-              <span class="badge badge-light">
-                <%= new_notification %>
-              </span>
-            <% end %>
-            <span class="sr-only">unread messages</span>
-              <p class="textmenu">Bookings</p>
           <% end %>
-      <% end %>
-    </div>
-
+          <% if new_notification != 0 %>
+            <span class="badge badge-light">
+              <%= new_notification %>
+            </span>
+          <% end %>
+          <span class="sr-only">unread messages</span>
+          <p class="textmenu">Bookings</p>
+      </div>
+    <% end %>
     <!-- Profile picture with dropdown list -->
   <% if current_user.nil? %>
-    <%= link_to "Log in", new_user_session_path, class:"navbar-wagon-item navbar-wagon-link"  %>
+
+    <!-- Button trigger modal -->
+    <div class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#logIn">
+      Log In
+    </div>
 
   <% else %>
     <div class="navbar-wagon-item">
@@ -40,6 +46,7 @@
 
   </div>
 
+
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
@@ -53,3 +60,17 @@
   </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="logInTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logInTitle">Log in</h5>
+      </div>
+      <div class="modal-body">
+        <%= render "devise/sessions/newsession" %>
+      </div>
+    </div>
+  </div>
+</div>
