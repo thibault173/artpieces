@@ -1,18 +1,43 @@
 <div class="wrapper">
   <div class="container">
-    <h1>My bookings</h1>
 
-
-    <h2>Bookings I made</h2>
-    <ul>
-    <% @pieces_rented.each do |rent|%>
-      <li><%= rent.name %> </li>
-    <% end %>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#mypieces">My pieces <span class="badge"> <%= @pieces_owned.size %></span></a></li>
+      <li><a data-toggle="tab" href="#bookingmade">Bookings I made <span class="badge"> <%= @pieces_rented.size %></span></a></li>
+      <li><a data-toggle="tab" href="#bookingdo">Booking I do <span class="badge"> <%= @my_pieces_reserved.size %></span></a></li>
+      <li><a data-toggle="tab" href="#addpiece">Add a piece</a></li>
     </ul>
-    <br>
-    <hr>
-    <h2>Bookings over my Art Pieces</h2>
-    <%= render 'bookings', bookings: @my_pieces_reserved %>
-    <br>
+
+    <div class="tab-content">
+
+      <div id="mypieces" class="tab-pane fade in active">
+        <h2>My pieces</h2>
+        <% @pieces_owned.each do |piece|%>
+          <li><%= piece.name %> <%= piece.name %> </li>
+        <% end %>
+      </div>
+
+      <div id="bookingmade" class="tab-pane fade">
+        <h2>Bookings I made</h2>
+        <ul>
+        <% @pieces_rented.each do |rent|%>
+          <li> <%= rent.name %> </li>
+        <% end %>
+        </ul>
+      </div>
+
+      <div id="bookingdo" class="tab-pane fade">
+        <h2>Bookings over my Art Pieces</h2>
+        <%= render 'bookings', bookings: @my_pieces_reserved %>
+      </div>
+
+      <div id="addpiece" class="tab-pane fade">
+        <h3>Add a piece</h3>
+
+      </div>
+
+    </div>
+
+
   </div>
 </div>
