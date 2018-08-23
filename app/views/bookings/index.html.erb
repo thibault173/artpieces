@@ -15,6 +15,10 @@
         <% @pieces_owned.each do |piece|%>
           <li><%= piece.name %> <%= piece.name %> </li>
         <% end %>
+
+        <%= link_to "Add a piece", new_piece_path, class: "btn btn-primary" %>
+
+
       </div>
 
       <div id="bookingmade" class="tab-pane fade">
@@ -33,6 +37,8 @@
 
       <div id="addpiece" class="tab-pane fade">
         <h3>Add a piece</h3>
+
+        <%= render 'pieces/form_piece', piece: @piece %>
 
       </div>
 
