@@ -8,9 +8,15 @@
 
     </div>
   </div>
-<br>
-<div class="cards-home">
-  <% @pieces_sample.each do |piece| %>
-  <%= render "shared/card", piece: piece %>
-  <% end %>
+
+<div>
+  <div class="cards-home">
+    <% @pieces_sample.each do |piece| %>
+      <%= render "shared/card", piece: piece %>
+    <% end %>
+  </div>
+</div>
+
+<div class="mini-footer">
+  <%= link_to "See More...", pieces_path, class: "btn btn-primary"  %>
 </div>
