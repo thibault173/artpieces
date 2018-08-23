@@ -7,8 +7,8 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <div class="notification-symbol-text">
-      <% new_notification = current_user.my_pieces_reserved.where(status: "pending").count %>
       <% if current_user %>
+        <% new_notification = current_user.my_pieces_reserved.where(status: "pending").count %>
           <%= link_to bookings_path do %>
             <i class="fas fa-bell" style ="color: black"></i>
             <% if new_notification != 0 %>
