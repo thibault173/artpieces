@@ -11,12 +11,11 @@
     <div class="tab-content">
 
       <div id="mypieces" class="tab-pane fade in active">
+        <%= link_to "Add a piece", new_piece_path, class: "btn btn-primary" %>
         <h2>My pieces</h2>
         <% @pieces_owned.each do |piece|%>
-          <li><%= piece.name %> <%= piece.name %> </li>
+          <%= render "shared/card", piece: piece %>
         <% end %>
-
-        <%= link_to "Add a piece", new_piece_path, class: "btn btn-primary" %>
 
 
       </div>
@@ -42,7 +41,7 @@
 
       </div>
 
-    </div>
+</div>
 
 
   </div>
