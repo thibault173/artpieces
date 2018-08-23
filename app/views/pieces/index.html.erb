@@ -1,25 +1,8 @@
 
 <div class="container">
   <h1>List of all Pieces on the website</h1>
-  <div class="row">
-    <% @pieces.each do |piece| %>
-      <div class="col-xs-12 col-sm-4">
-
-        <%= link_to piece_path(piece) do  %>
-          <div class="piece-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path piece.photo, width: 400 %>');">
-
-              <div class="card-category">
-                <%= piece.name %>
-              </div>
-
-            <div class="price">
-              <p> <%= piece.price %> </p>
-            </div>
-
-          </div>
-        <% end %>
-
-      </div>
+ <% @pieces.each do |piece| %>
+    <%= render "shared/card", piece: piece %>
     <% end %>
   </div>
 </div>
