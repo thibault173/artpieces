@@ -13,7 +13,7 @@
       <div id="mypieces" class="tab-pane fade in active">
         <h2>My pieces</h2>
         <% @pieces_owned.each do |piece|%>
-          <li><%= piece.name %> <%= piece.name %> </li>
+          <li><%= link_to piece.name, piece_path(piece) %></li>
         <% end %>
 
         <%= link_to "Add a piece", new_piece_path, class: "btn btn-primary" %>
