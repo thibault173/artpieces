@@ -3,8 +3,9 @@ class BookingsController < ApplicationController
 
   def index
     @pieces_rented = current_user.rent_pieces.order(id: :desc)
-    # @pieces_owned = current_user.own_pieces
+    @pieces_owned = current_user.own_pieces
     @my_pieces_reserved = current_user.my_pieces_reserved.order(id: :desc)
+    @piece = Piece.new
   end
 
   def create
