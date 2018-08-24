@@ -12,4 +12,7 @@ Rails.application.routes.draw do
       get 'decline', to: 'bookings#decline'
     end
   end
+
+  get 'profile', to: 'pages#profile'
+
 end
