@@ -4,9 +4,9 @@ class PiecesController < ApplicationController
 
   def index
     if params[:query].nil? || params[:query] == ""
-      @pieces = Piece.all.reject{ |piece| piece.user == current_user }
+      @pieces = Piece.all
     else
-      @pieces = Piece.search_by_name_and_description("#{params[:query]}").reject{ |piece| piece.user == current_user }
+      @pieces = Piece.search_by_name_and_description("#{params[:query]}")
     end
   end
 
