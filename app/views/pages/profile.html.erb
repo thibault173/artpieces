@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="profile col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="profile-avatar">
+        <%= image_tag "bernard.jpeg", alt: "alttext", class: "avatar-large" %>
+      </div>
+    <!--   <div class="profile-name">
+        <h3>Gab Dehan</h3>
+        <p>10/07/17</p>
+      </div> -->
+      <div class="profile-body">
+        <p><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></p>
+        <p><%= current_user.email %></p>
+      </div>
+      <div class="profile-edit">
+        <%= link_to edit_user_registration_path do %>
+          <i class="far fa-edit" style="color: black"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

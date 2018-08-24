@@ -17,4 +17,7 @@ class User < ApplicationRecord
   has_many :own_pieces, class_name: 'Piece'
   # J'accède à mes objets pour lesquels il y a une réservation
   has_many :my_pieces_reserved, through: :own_pieces, source: :bookings
+
+
+  mount_uploader :avatar, PhotoUploader
 end
