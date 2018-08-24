@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+
   protect_from_forgery
   before_action :authenticate_user!
 
@@ -11,4 +13,16 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :avatar])
   end
+
+  private
+
+  # def user_not_authorized
+  #   flash[:alert] = "You are not authorized to perform this action."
+  #   redirect_to(root_path)
+  # end
+
+  # def skip_pundit?
+  #   devise_controller? || params[:controller] =~ /(^pages$)/
+  # end
+
 end
