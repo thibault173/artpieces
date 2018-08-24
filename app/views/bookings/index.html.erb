@@ -8,41 +8,35 @@
       <li><a data-toggle="tab" href="#addpiece">Add a piece</a></li>
     </ul>
 
-    <div class="tab-content">
+      <div class="tab-content">
 
-      <div id="mypieces" class="tab-pane fade in active">
-        <%= link_to "Add a piece", new_piece_path, class: "btn btn-primary" %>
-        <h2>My pieces</h2>
-        <% @pieces_owned.each do |piece|%>
-          <%= render "shared/card", piece: piece %>
-        <% end %>
+        <div id="mypieces" class="tab-pane fade in active">
+            <div class="card-list">
+              <% @pieces_owned.each do |piece|%>
+              <%= render "shared/card_list", piece: piece %>
+            <% end %>
+            </div>
+        </div>
 
-
-      </div>
-
-      <div id="bookingmade" class="tab-pane fade">
-        <h2>Bookings I made</h2>
-        <ul>
-        <% @pieces_rented.each do |rent|%>
+        <div id="bookingmade" class="tab-pane fade">
+          <h2>Bookings I made</h2>
+          <ul>
+          <% @pieces_rented.each do |rent|%>
           <li> <%= rent.name %> </li>
-        <% end %>
-        </ul>
+          <% end %>
+          </ul>
+        </div>
+
+        <div id="bookingdo" class="tab-pane fade">
+          <h2>Bookings over my Art Pieces</h2>
+          <%= render 'bookings', bookings: @my_pieces_reserved %>
+        </div>
+
+        <div id="addpiece" class="tab-pane fade">
+          <h3>Add a piece</h3>
+
+          <%= render 'pieces/form_piece', piece: @piece %>
+        </div>
       </div>
-
-      <div id="bookingdo" class="tab-pane fade">
-        <h2>Bookings over my Art Pieces</h2>
-        <%= render 'bookings', bookings: @my_pieces_reserved %>
-      </div>
-
-      <div id="addpiece" class="tab-pane fade">
-        <h3>Add a piece</h3>
-
-        <%= render 'pieces/form_piece', piece: @piece %>
-
-      </div>
-
-</div>
-
-
   </div>
 </div>

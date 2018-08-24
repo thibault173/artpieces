@@ -1,0 +1,23 @@
+
+
+<div class="card-corner">
+  <div class="row">
+      <div class="col-xs-3 col-md-4">
+        <%= link_to piece_path(piece) do  %>
+        <div class="piece-card" style="background-blend-mode: multiply; background-image: linear-gradient(-255deg,rgba(235,222,108,1), rgba(232,120,70,0.3)), url('<%= cl_image_path piece.photo, width: 200 %>');">
+        </div>
+      </div>
+
+    <% end %>
+    <div class="text-list">
+      <ul>
+        <li><h1 class="title-list"> <%= piece.name %></h1></li>
+        <li> <%= piece.description %></li>
+        <li> <h1 class="title-price"><%= piece.price %> CHF </li></h1>
+
+      </ul>
+    </div>
+
+  </div>
+
+</div>
