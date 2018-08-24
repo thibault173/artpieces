@@ -4,7 +4,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   def public_id
     if model.id.nil?
-      "artpieces/#{model.class}/#{model.name}"
+      if model.name.nil?
+        "artpieces/#{model.class}/#{model.email}"
+      else
+        "artpieces/#{model.class}/#{model.name}"
+      end
     else
       "artpieces/#{model.class}/#{model.id}"
     end
