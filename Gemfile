@@ -23,6 +23,7 @@ gem 'json'
 gem 'nokogiri'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

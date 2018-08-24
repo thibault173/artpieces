@@ -3,14 +3,32 @@
        <h1>RENT A PIECE </h1>
       "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.
       <div class="home-btn">
-        <button type="button" class="btn btn-primary">Test du btn</button>
+        <%= form_tag pieces_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            placeholder: "Find a piece",
+            class: "input"
+          %>
+        <% end %>
+        <i class="fa fa-search" aria-hidden="true"></i>
       </div>
 
     </div>
   </div>
-<br>
-<div class="cards-home">
-  <% @pieces_sample.each do |piece| %>
-  <%= render "shared/card", piece: piece %>
-  <% end %>
+
+<div>
+  <div class="cards-home">
+    <% @pieces_sample.each do |piece| %>
+      <%= render "shared/card", piece: piece %>
+    <% end %>
+  </div>
 </div>
+
+<div class="mini-footer">
+  <%= link_to "See More...", pieces_path, class: "btn btn-primary"  %>
+</div>
+
+
+
+
+

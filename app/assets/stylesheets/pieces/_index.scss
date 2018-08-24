@@ -1,0 +1,18 @@
+.index-container {
+  .search {
+    position: relative;
+    margin: 10px 0px;
+   }
+  .input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    font-size: 20px;
+    width: 100%;
+  }
+  .fa {
+    position: absolute;
+    right: 0;
+    top: 5px;
+  }
+}

@@ -3,7 +3,11 @@ class PiecesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @pieces = Piece.all.reject{ |piece| piece.user == current_user }
+    if params[:query].nil? || params[:query] == ""
+      @pieces = Piece.all.reject{ |piece| piece.user == current_user }
+    else
+      @pieces = Piece.search_by_name_and_description("#{params[:query]}").reject{ |piece| piece.user == current_user }
+    end
   end
 
   def show

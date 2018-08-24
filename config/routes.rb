@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get "home", to: 'pages#home'
+
   devise_for :users
-  root to: 'pieces#index'
+  root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :pieces, only: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :pieces, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:create]
   end
   resources :bookings, only: [:update, :destroy, :index] do
