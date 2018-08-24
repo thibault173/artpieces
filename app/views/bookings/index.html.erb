@@ -11,23 +11,22 @@
     <div class="tab-content">
 
       <div id="mypieces" class="tab-pane fade in active">
-        <h2>My pieces</h2>
-        <% @pieces_owned.each do |piece|%>
-          <li><%= link_to piece.name, piece_path(piece) %></li>
-        <% end %>
-
-        <%= link_to "Add a piece", new_piece_path, class: "btn btn-primary" %>
-
-
+        <div class="card-list">
+          <% @pieces_owned.each do |piece|%>
+          <%= render "shared/card_list", piece: piece %>
+          <% end %>
+        </div>
       </div>
+
 
       <div id="bookingmade" class="tab-pane fade">
         <h2>Bookings I made</h2>
-        <ul>
-        <% @pieces_rented.each do |rent|%>
-          <li> <%= rent.name %> </li>
-        <% end %>
-        </ul>
+          <ul>
+            <% @pieces_rented.each do |rent|%>
+
+              <li> <%= rent.name %> </li>
+            <% end %>
+          </ul>
       </div>
 
       <div id="bookingdo" class="tab-pane fade">
@@ -41,7 +40,6 @@
       </div>
 
     </div>
-
 
   </div>
 </div>
