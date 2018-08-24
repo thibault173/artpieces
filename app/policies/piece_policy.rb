@@ -18,7 +18,7 @@ class PiecePolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == current_user
+    record.user == user
   end
 
   def update?
