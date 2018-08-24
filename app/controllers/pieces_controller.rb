@@ -5,7 +5,7 @@ class PiecesController < ApplicationController
   def index
     @pieces = policy_scope(Piece)
     if params[:query].present?
-      @pieces = @pieces.search_by_name_and_description("#{params[:query]}")
+      @pieces = Piece.search_by_name_and_description("#{params[:query]}")
     end
   end
 

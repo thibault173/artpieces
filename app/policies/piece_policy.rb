@@ -1,7 +1,7 @@
 class PiecePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where.not(user_id: user.id)
+      scope.all
     end
   end
 
