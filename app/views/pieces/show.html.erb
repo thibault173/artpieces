@@ -1,37 +1,55 @@
-<div class="container container-show" >
+<div class="wrapper">
+  <div class="container container-show" >
 
-  <div class="picture">
-  <%= cl_image_tag @piece.photo, width: 400 %> <br>
-  </div>
-
-  <div class="text">
-      <h1> <%= @piece.name %> </h1>
-      <p> Price : <%= @piece.price %> CHF </p>
-          <p>Description : <%= @piece.description %></p>
-  </div>
-
-  <div class="formulaire">
-    <ul>
-      <% @piece.tags.each do |tag| %>
-        <li> <%= tag.name %> </li>
-      <% end %>
-    </ul>
-
-    <div class="align">
-      <div class="btntag">
-        <%= link_to "Edit this piece", edit_piece_path(@piece)  %>
-      </div>
-
-      <div class="btntag">
-        <%= link_to "Back", root_path  %>
-      </div>
-
-      <div class="btntag">
-        <%= link_to "Delete this piece", piece_path(@piece),
-          method: :delete,
-          data: {confirm: "Are you sure?" } %>
-      </div>
+    <div class="picture">
+    <%= cl_image_tag @piece.photo, width: 400 %> <br>
     </div>
-    <%= render 'bookings/form_booking', piece: @piece, booking: @booking  %>
+
+    <div class="text">
+        <h1> <%= @piece.name %> </h1>
+        <p> Price : <%= @piece.price %> CHF </p>
+            <p>Description : <%= @piece.description %></p>
+    </div>
+
+    <div class="formulaire">
+      <ul>
+        <% @piece.tags.each do |tag| %>
+          <li> <%= tag.name %> </li>
+        <% end %>
+      </ul>
+
+      <% if @piece.user == current_user %>
+
+      <div class="align">
+        <div class="btntag">
+          <%= link_to "Edit this piece", edit_piece_path(@piece)  %>
+        </div>
+
+        <div class="btntag">
+          <%= link_to "Back", root_path  %>
+        </div>
+
+        <div class="btntag">
+          <%= link_to "Delete this piece", piece_path(@piece),
+            method: :delete,
+            data: {confirm: "Are you sure?" } %>
+        </div>
+      </div>
+
+
+      <% else %>
+
+      <div class="align">
+
+        <div class="btntag">
+          <%= link_to "Back", root_path  %>
+        </div>
+      </div>
+        <%= render 'bookings/form_booking', piece: @piece, booking: @booking  %>
+      <% end %>
+
+
+
+    </div>
   </div>
 </div>

@@ -1,13 +1,27 @@
+<div class="wrapper">
+  <div class="container index-container">
+    <div class="col-xs-12">
 
-<div class="container">
-  <h1>List of all Pieces on the website</h1>
- <% @pieces.each do |piece| %>
-    <%= render "shared/card", piece: piece %>
+        <%= form_tag pieces_path, method: :get, class: "search" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            placeholder: "Find a piece",
+            class: "input"
+          %><i class="fa fa-search" aria-hidden="true"></i>
+        <% end %>
+
+    </div>
+
+    <% if @pieces.size == 0 %>
+      <div class="col-xs-12">
+        <p>No pieces matches with query.</p>
+      </div>
+    <% else %>
+      <% @pieces.each do |piece| %>
+        <%= render "shared/card", piece: piece %>
+      <% end %>
     <% end %>
-  </div>
-</div>
-<div class="bouton">
-  <div class="addpiece">
-      <%= link_to "Add a piece", new_piece_path, :class => "btn btn-primary" %>
+
+    </div>
   </div>
 </div>
