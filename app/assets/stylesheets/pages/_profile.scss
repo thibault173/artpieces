@@ -1,0 +1,52 @@
+.profile {
+  align-items: center;
+  background: white;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  min-height: 400px;
+  position: relative;
+}
+
+.profile-body {
+  flex-grow: 1;
+}
+
+.profile-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.profile-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+
+}
+.profile-body p {
+
+  margin: 6px 0;
+  text-align: center;
+}
+.profile-edit {
+  font-size: 20px;
+  font-weight: bold;
+  color: lightgrey;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.status.accepted {
+  color: #04A366;
+}
+.status.declined {
+  color: red;
+}
+.status.pending {
+  color: lightgrey;
+}
+
+.profile-avatar {
+  text-align: center;
+  margin: 50px;
+}
