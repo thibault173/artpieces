@@ -10,6 +10,7 @@
   justify-content: space-between;
   z-index: 9;
 
+
   .notification-symbol-text {
     margin-right: 30px;
     margin-top: 15px;
@@ -30,6 +31,7 @@
       font-size: 11px;
     }
   }
+
 }
 
 /* Logo */
@@ -120,6 +122,7 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
 
 .modal-body {
   margin-bottom: -30px;
