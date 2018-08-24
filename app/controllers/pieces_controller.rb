@@ -3,24 +3,26 @@ class PiecesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].nil? || params[:query] == ""
-      @pieces = Piece.all
-    else
+    @pieces = policy_scope(Piece)
+    if params[:query].present?
       @pieces = Piece.search_by_name_and_description("#{params[:query]}")
     end
   end
 
   def show
+    authorize(@piece)
     @piece_tag = PieceTag.new
     @booking = Booking.new
   end
 
   def new
     @piece = Piece.new
+    authorize(@piece)
   end
 
   def create
     @piece = Piece.new(piece_params)
+    authorize(@piece)
     @piece.user = current_user
     if @piece.save
       redirect_to piece_path(@piece)
@@ -30,11 +32,12 @@ class PiecesController < ApplicationController
   end
 
   def edit
-
+    authorize(@piece)
   end
 
   def update
     @piece.update(piece_params)
+    authorize(@piece)
     if @piece.save
       redirect_to piece_path(@piece)
     else
@@ -43,6 +46,7 @@ class PiecesController < ApplicationController
   end
 
   def destroy
+    authorize(@piece)
     @piece.destroy
     redirect_to root_path
   end
