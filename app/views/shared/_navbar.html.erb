@@ -11,22 +11,21 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
     <% unless current_user.nil? %>
       <div class="notification-symbol-text">
         <% new_notification = current_user.my_pieces_reserved.where(status: "pending").count %>
-        <%= link_to bookings_path do %>
-          <i class="fas fa-bell" style ="color: black"></i>
+          <%= link_to bookings_path do %>
+            <i class="fas fa-bell" style ="color: black"></i>
+          <% end %>
           <% if new_notification != 0 %>
             <span class="badge badge-light">
               <%= new_notification %>
             </span>
           <% end %>
-        <% end %>
+          <span class="sr-only">unread messages</span>
+          <p class="textmenu">Bookings</p>
       </div>
     <% end %>
-
-
     <!-- Profile picture with dropdown list -->
   <% if current_user.nil? %>
 
