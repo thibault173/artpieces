@@ -13,10 +13,10 @@
 
     <% bookings.each do |booking|%>
       <tr>
-        <td class="table-avatar"><%= booking.user.avatar %></td>
+        <td class="table-avatar"><%= cl_image_tag booking.user.avatar, class: "avatar"%></td>
         <td><%= booking.user.first_name %></td>
         <td><%= booking.piece.name%></td>
-        <td><div><%= booking.id%>|<%= booking.start_on%></div><div><%= booking.end_on%></div></td>
+        <td><div><%= booking.start_on%></div><div><%= booking.end_on%></div></td>
         <td><%= booking.status%></td>
 
         <td>
