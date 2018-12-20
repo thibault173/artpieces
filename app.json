@@ -14,21 +14,12 @@
     "RAILS_ENV": {
       "required": true
     },
-    "RAILS_LOG_TO_STDOUT": {
-      "required": true
-    },
-    "RAILS_SERVE_STATIC_FILES": {
-      "required": true
-    },
     "SECRET_KEY_BASE": {
       "required": true
     }
   },
   "formation": {
     "web": {
-      "quantity": 1
-    },
-    "worker": {
       "quantity": 1
     }
   },
